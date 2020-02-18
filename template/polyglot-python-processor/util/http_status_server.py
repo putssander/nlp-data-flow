@@ -1,5 +1,6 @@
 import threading
-from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
+from http.server import HTTPServer, BaseHTTPRequestHandler
+
 
 class HttpHealthServer(BaseHTTPRequestHandler):
     def do_GET(self):

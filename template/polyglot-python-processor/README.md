@@ -65,3 +65,5 @@ Inspect logs for posted message:
 INFO 1 --- [container-0-C-1] log-sink                                 : dlrow olleh
 ```
 
+EDIT
+docker build -t putssander/polyglot-python-processor:0.1 .

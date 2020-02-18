@@ -8,11 +8,11 @@ from util.http_status_server import HttpHealthServer
 from util.task_args import get_kafka_binder_brokers, get_input_channel, get_output_channel, get_reverse_string
 from time import sleep
 
-print("ENV", os.environ)
+print("ENV", os.environ, flush=True)
 
-print("sleep")
-sleep(120)
-print("awake")
+print("sleep", flush=True)
+sleep(60)
+print("awake", flush=True)
 
 
 consumer = KafkaConsumer(get_input_channel(), bootstrap_servers=[get_kafka_binder_brokers()])
