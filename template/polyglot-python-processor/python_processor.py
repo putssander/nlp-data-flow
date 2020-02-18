@@ -6,6 +6,14 @@ import sys
 from kafka import KafkaConsumer, KafkaProducer
 from util.http_status_server import HttpHealthServer
 from util.task_args import get_kafka_binder_brokers, get_input_channel, get_output_channel, get_reverse_string
+from time import sleep
+
+print("ENV", os.environ)
+
+print("sleep")
+sleep(120)
+print("awake")
+
 
 consumer = KafkaConsumer(get_input_channel(), bootstrap_servers=[get_kafka_binder_brokers()])
 producer = KafkaProducer(bootstrap_servers=[get_kafka_binder_brokers()])
