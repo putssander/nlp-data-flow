@@ -26,7 +26,7 @@ while True:
         reverse_string = get_reverse_string()
 
         if reverse_string is not None and reverse_string.lower() == "true":
-            output_message = "".join(reversed(message.value))
+            output_message = "".join(reversed(message.value.decode('utf-8'))).encode('utf-8')
 
         producer.send(get_output_channel(), output_message)
 
