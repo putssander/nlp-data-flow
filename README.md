@@ -33,4 +33,4 @@ https://repo.spring.io/release/org/springframework/cloud/spring-cloud-dataflow-s
     
 Manually connect de containers to the network
 
-    docker network connect nlp-flow-network <container-id>
+    docker network connect nlp-data-flow-network <container-id>
