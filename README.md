@@ -1,4 +1,4 @@
-# NLP-DATA-FLOW
+# NLP-DATAFLOW
 
 Use Spring Cloud Data Flow to build NLP pipelines
 
