@@ -20,7 +20,7 @@ OR helm installation (kafka, nodeport)
 
     helm repo add stable https://kubernetes-charts.storage.googleapis.com
 
-    helm install --set server.service.type=NodePort --set features.batch.enabled=false --set rabbitmq-ha.enabled=true,rabbitmq.enabled=false stable/spring-cloud-data-flow --version 2.6.0 --generate-name 
+    helm install --set server.service.type=NodePort --set features.batch.enabled=false --set kafka.enabled=true,rabbitmq.enabled=false stable/spring-cloud-data-flow --version 2.6.0 --generate-name 
 
 
 
