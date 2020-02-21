@@ -1,5 +1,13 @@
 Deploy with HELM (see screenshot for secrets)
 
+
+Create 2 persistent volumes (node path)
+
+    /mnt/data/v1
+    /mnt/data/v2
+
+Stream definitions
+
     stream create --name test --definition "http --server.port=32123 | python-processor --reversestring=true  | log
     
     stream deploy test --properties "deployer.http.kubernetes.createNodePort=32123"

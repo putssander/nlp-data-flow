@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+
+import os
+import sys
+
+from kafka import KafkaConsumer, KafkaProducer
+from util.http_status_server import HttpHealthServer
+from util.task_args import get_kafka_binder_brokers, get_input_channel, get_output_channel, get_reverse_string
+from time import sleep
+
+print("ENV", os.environ, flush=True)
+
+# print("sleep", flush=True)
+# sleep(60)
+# print("awake", flush=True)
+
+
+consumer = KafkaConsumer(get_input_channel(), bootstrap_servers=[get_kafka_binder_brokers()])
+producer = KafkaProducer(bootstrap_servers=[get_kafka_binder_brokers()])
+
+HttpHealthServer.run_thread()
+
+while True:
+    for message in consumer:
+        output_message = message.value
+        reverse_string = get_reverse_string()
+
+        if reverse_string is not None and reverse_string.lower() == "true":
+            output_message = "".join(reversed(message.value.decode('utf-8'))).encode('utf-8')
+
+        producer.send(get_output_channel(), output_message)
+
